@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 ads:adSize="SMART_BANNER"
-                ads:adUnitId="a1503ac1fd4e2ac"
+                ads:adUnitId="ca-app-pub-9329210656161178/7662317246"
                 ads:loadAdOnCreate="true"
                 ads:testDevices="TEST_EMULATOR" >
             </com.google.ads.AdView>
