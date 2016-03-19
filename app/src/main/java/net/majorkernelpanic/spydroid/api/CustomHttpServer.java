@@ -34,6 +34,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.WeakHashMap;
 
+import net.majorkernelpanic.common.DebugLog;
 import net.majorkernelpanic.http.TinyHttpServer;
 import net.majorkernelpanic.spydroid.SpydroidApplication;
 import net.majorkernelpanic.streaming.Session;
@@ -98,6 +99,8 @@ public class CustomHttpServer extends TinyHttpServer {
 		mHttpEnabled = true;
 		mHttpsEnabled = false;
 
+		DebugLog.i("");
+
 	}
 
 	private CallbackListener mListener = new CallbackListener() {
@@ -106,9 +109,12 @@ public class CustomHttpServer extends TinyHttpServer {
 			if (error==ERROR_START_FAILED) {
 				SpydroidApplication.getInstance().lastCaughtException = e;
 			}
+			DebugLog.i("error="+error);
 		}
 		@Override
-		public void onMessage(TinyHttpServer server, int message) {}
+		public void onMessage(TinyHttpServer server, int message) {
+			DebugLog.i("");
+		}
 	};
 
 	@Override
@@ -117,6 +123,7 @@ public class CustomHttpServer extends TinyHttpServer {
 		mDescriptionRequestHandler = new DescriptionRequestHandler();
 		addRequestHandler("/spydroid.sdp*", mDescriptionRequestHandler);
 		addRequestHandler("/request.json*", new CustomRequestHandler());
+		DebugLog.i("");
 	}
 
 	@Override
